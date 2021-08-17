@@ -9,7 +9,7 @@ func Auth() func(*fiber.Ctx) error {
 		fromHeader := c.Get("authorization")
 
 		if fromHeader == "" {
-			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
 				"errors": "access denied",
 			})
 		}
