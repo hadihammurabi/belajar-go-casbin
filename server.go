@@ -15,7 +15,8 @@ func NewHttp() *fiber.App {
 
 	students := app.Group("/students", Auth())
 	students.Get("/",
-		Permission([][]string{{"students", "read"}}...),
+		Permission("students", PERMISSION_READ),
+		Permission("students", PERMISSION_CREATE),
 		func(c *fiber.Ctx) error {
 			return c.JSON(fiber.Map{
 				"message": "all students",
@@ -24,7 +25,7 @@ func NewHttp() *fiber.App {
 		},
 	)
 	students.Post("/",
-		Permission([][]string{{"students", "create"}}...),
+		Permission("students", PERMISSION_CREATE),
 		func(c *fiber.Ctx) error {
 			return c.JSON(fiber.Map{
 				"message": "student created",
