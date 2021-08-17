@@ -5,6 +5,8 @@ github.com/andybalholm/brotli v1.0.2/go.mod h1:loMXtMfwqflxFJPmdbJO0a3KNoPuLBgiu
 github.com/casbin/casbin/v2 v2.19.8/go.mod h1:wUgota0cQbTXE6Vd+KWpg41726jFRi7upxio0sR+Xd0=
 github.com/casbin/casbin/v2 v2.36.0 h1:LJvYC2Wk6BTd1k7hIGeFVBYn18b+q4DH4jcn8TbdVXs=
 github.com/casbin/casbin/v2 v2.36.0/go.mod h1:vByNa/Fchek0KZUgG5wEsl7iFsiviAYKRtgrQfcJqHg=
+github.com/casbin/casbin/v2 v2.36.1 h1:6b7PQuOEcNR4ZGvQcN82+E1o/n2KMNSUk+np9iryU8A=
+github.com/casbin/casbin/v2 v2.36.1/go.mod h1:vByNa/Fchek0KZUgG5wEsl7iFsiviAYKRtgrQfcJqHg=
 github.com/casbin/redis-adapter/v2 v2.1.0 h1:mTIXkzm1Jm14cM+Vnovt7VXDyf24rD82DKqi/IUWqT0=
 github.com/casbin/redis-adapter/v2 v2.1.0/go.mod h1:2m3++VJRyR8aN3K7niK/IgL1QaNlsZ4i9XvU5eWKDaU=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
