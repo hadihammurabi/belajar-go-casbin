@@ -19,24 +19,26 @@ func Auth() func(*fiber.Ctx) error {
 	}
 }
 
-func Permission(rules ...[]string) func(*fiber.Ctx) error {
+func Permission(rules ...string) func(*fiber.Ctx) error {
+	if len(rules) != 2 {
+		panic("length of permission rule must be 2")
+	}
+
 	iam := NewIam()
 
 	return func(c *fiber.Ctx) error {
 		user := c.Locals("user")
-		for _, rule := range rules {
-			ok, err := iam.Enforce(user, rule[0], rule[1])
+		ok, err := iam.Enforce(user, rules[0], rules[1])
 
-			if err != nil {
-				return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-					"errors": "error occured while authorizing user",
-				})
-			}
-			if !ok {
-				return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-					"errors": "access denied",
-				})
-			}
+		if err != nil {
+			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+				"errors": "error occured while authorizing user",
+			})
+		}
+		if !ok {
+			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+				"errors": "access denied",
+			})
 		}
 
 		return c.Next()
